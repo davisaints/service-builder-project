@@ -1,11 +1,11 @@
 #To invoke JSONWS:
 curl http://localhost:8080/api/jsonws/ohqiwtsfhl.h7g5folder/add-my-custom-h7-g5-folder \
   -d description="This is where I store all my vacation photos." \
-  -d name="Vacation Photos" \
+  -d name="Underwater photos." \
   -u test@liferay.com:test
 
 curl http://localhost:8080/api/jsonws/ohqiwtsfhl.h7g5folder/add-my-custom-h7-g5-folder \
-  -d description="Davi test" \
+  -d description="Davi test-1" \
   -d name="Davi" \
   -u test@liferay.com:test
 
@@ -23,15 +23,8 @@ curl http://localhost:8080/api/jsonws/ohqiwtsfhl.h7g5folder/add-my-custom-h7-g5-
 
   #I used this curl command to invoke JSONWS and didn't invok
   curl http://localhost:8080/api/jsonws/ohqiwtsfhl.h7g5entry/add-my-custom-h7-g5-entry-service-with-permission-check \
-  -d description="photo 2." \
-  -d name="desc 2" \
+  -d description="Photo 2." \
+  -d name="Desc 2" \
   -u davi@liferay.com:test
 
-
-
-
-
-
-
-  
 

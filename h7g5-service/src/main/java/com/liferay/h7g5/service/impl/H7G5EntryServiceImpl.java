@@ -27,46 +27,52 @@ import org.osgi.service.component.annotations.Component;
 /**
  * @author Brian Wing Shun Chan
  */
-@Component(
-	property = {
-		"json.web.service.context.name=ohqiwtsfhl",
-		"json.web.service.context.path=H7G5Entry"
-	},
-	service = AopService.class
-)
-public class H7G5EntryServiceImpl extends H7G5EntryServiceBaseImpl {
-	public H7G5Entry addMyCustomH7G5EntryServiceWithPermissionCheck(
-		String description, String name)
-		throws PortalException {
-        
-			checkEmailAdress();
-		
-			System.out.println(
-			 "Invoking H7G5EntryServiceImpl#addMyCustomH7G5Entry(" + description + ", " + name + ")");
-		
-			H7G5Entry h7g5Entry = h7g5EntryLocalService.createH7G5Entry(
-			 System.currentTimeMillis());
-		
-			h7g5Entry.setDescription(description);
-			h7g5Entry.setName(name);
-		
-			h7g5EntryLocalService.addH7G5Entry(h7g5Entry);
-		
-		
-			return h7g5Entry;
-		}
 
-		public int getH7G5EntriesCount(){
-			return h7g5EntryLocalService.getH7G5EntriesCount();
-		}
+@Component(property = {
+
+		"json.web.service.context.name=ohqiwtsfhl", "json.web.service.context.path=H7G5Entry"
+},
+
+		service = AopService.class)
+
+public class H7G5EntryServiceImpl extends H7G5EntryServiceBaseImpl {
+
+	public H7G5Entry addMyCustomH7G5EntryServiceWithPermissionCheck(
+
+			String description, String name)
+			throws PortalException {
+
+		checkEmailAdress();
+
+		System.out.println(
+				"Requesting H7G5EntryServiceImpl # addMyCustomH7G5Entry(" + description + ", " + name + ")");
+
+		H7G5Entry h7g5Entry = h7g5EntryLocalService.createH7G5Entry(
+				System.currentTimeMillis());
+
+		h7g5Entry.setDescription(description);
+
+		h7g5Entry.setName(name);
+
+		h7g5EntryLocalService.addH7G5Entry(h7g5Entry);
+
+		return h7g5Entry;
+	}
+
+	public int getH7G5EntriesCount() {
+		return h7g5EntryLocalService.getH7G5EntriesCount();
+	}
 
 	public void checkEmailAdress() throws PortalException {
 
 		User user = getUser();
-		
 
 		if (!Objects.equals(user.getEmailAddress(), "test@liferay.com")) {
+
 			throw new PrincipalException("You are not test@liferay.com");
+
 		}
+
 	}
+
 }
